@@ -916,8 +916,8 @@ void PPCAsmPrinter::emitInstruction(const MachineInstr *MI) {
            "AIX does not support patchable function entry!");
     // PATCHABLE_FUNCTION_ENTER on little endian is for XRAY support which is
     // handled in PPCLinuxAsmPrinter.
-    if (MAI->isLittleEndian())
-      return;
+    //if (MAI->isLittleEndian())
+    //  return;
     const Function &F = MF->getFunction();
     unsigned Num = 0;
     (void)F.getFnAttribute("patchable-function-entry")
@@ -1813,8 +1813,8 @@ void PPCLinuxAsmPrinter::emitInstruction(const MachineInstr *MI) {
     // Update compiler-rt/lib/xray/xray_powerpc64.cc accordingly when number
     // of instructions change.
     // XRAY is only supported on PPC Linux little endian.
-    if (!MAI->isLittleEndian())
-      break;
+    //if (!MAI->isLittleEndian())
+    //  break;
     MCSymbol *BeginOfSled = OutContext.createTempSymbol();
     MCSymbol *EndOfSled = OutContext.createTempSymbol();
     OutStreamer->emitLabel(BeginOfSled);

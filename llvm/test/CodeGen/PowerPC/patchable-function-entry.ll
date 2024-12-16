@@ -1,5 +1,6 @@
 ; RUN: llc -mtriple=powerpc %s -o - | FileCheck %s --check-prefixes=CHECK,PPC32
 ; RUN: llc -mtriple=powerpc64 %s -o - | FileCheck %s --check-prefixes=CHECK,PPC64
+; RUN: llc -mtriple=powerpc64le %s -o - | FileCheck %s --check-prefixes=CHECK,PPC64
 
 @a = global i32 0, align 4
 
